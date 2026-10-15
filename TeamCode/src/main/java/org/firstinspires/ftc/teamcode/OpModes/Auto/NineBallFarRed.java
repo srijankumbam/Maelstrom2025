@@ -31,7 +31,7 @@ public class NineBallFarRed extends CommandOpMode
     @Override
     public void initialize()
     {
-        robot= new Maelstrom(hardwareMap,telemetry, Maelstrom.Alliance.BLUE,gamepad1,gamepad2);
+        robot= new Maelstrom(hardwareMap,telemetry, Maelstrom.Alliance.RED,gamepad1,gamepad2);
         follower=robot.dt.follower;
         follower.setStartingPose(new Pose(56,9,Math.toRadians(180)).mirror());
         robot.shooter.setTargetVelocity(2000);
@@ -45,7 +45,7 @@ public class NineBallFarRed extends CommandOpMode
                         new ParallelCommandGroup(
                                 new InstantCommand(() -> robot.shooter.enableFlywheel()),
                                 new InstantCommand(() -> robot.turret.setPointMode()),
-                                new InstantCommand(() -> robot.turret.setManualAngle(72)),
+                                new InstantCommand(() -> robot.turret.setManualAngle(70)),
                                 new FollowPathCommand(follower,paths.Start,true)
                         ),
                         new WaitCommand(500),
